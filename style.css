@@ -1,0 +1,319 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    font-family: 'Mulish', sans-serif;
+    font-size: 62.5%;
+
+    --color-bg-first: #065E7C;
+    --color-bg-footer: #387E96;;
+    --color-bg-label:#ffffff33; 
+    --color-text-first: #202024;
+    --color-text-second: #121214;
+    
+    line-height: 160%;
+}
+
+input{
+    font-family: 'Mulish', sans-serif;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+}
+/* Header */
+
+header{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    place-items: center;
+    gap: 2.5rem;
+
+    background-color: var(--color-bg-first);
+
+    padding: 1.2rem 2.8rem;
+}
+
+.logo{
+    width: 4rem;
+    height: 4rem;
+}
+
+.icon{
+    width: 4.2rem;
+    height: 4.2rem;
+    border-radius: 50%;
+}
+
+header label{
+    display: none;
+}
+
+header input{
+    background-color: var(--color-bg-label);
+    
+    border: none;
+    border-radius: 4px;
+
+    width: 24.1rem;
+    height: 4rem;
+
+    padding: 1.2rem 1.6rem;
+    color: white;
+}
+
+header input::placeholder{
+    color: white;
+
+    font-weight: 600;
+}
+
+/* Main */
+
+main{
+    margin-bottom: 3.4rem;
+}
+
+main figure img{
+    width: 100%;
+    object-fit: cover; 
+}
+
+.title{
+    margin: 3.1rem 4rem 3.1rem 2.2rem;
+}
+
+.like{
+    display: flex;
+    gap: 1.2rem;
+}
+
+main h1{
+    color:var(--color-text-first);
+
+    font-size: 2.4rem;
+    font-weight: 700;
+
+    margin-bottom: .8rem;
+}
+
+main p{
+    margin: 3.1rem 2.6rem 3.1rem 2.2rem;
+    
+    text-align: justify;
+    font-weight: 400;
+
+    color: var(--color-text-second);
+    font-weight: 400;
+}
+
+/* Aside */
+
+aside{
+    margin-left: 2.2rem;
+    color:var(--color-text-first);
+
+    display: grid;
+    gap: 3.2rem;
+}
+
+aside h2{
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
+aside h3{
+    font-size: 1.8rem;
+    font-weight: 700;
+
+    margin-bottom: 1.5rem;
+}
+
+aside p{
+    font-size: 1.4rem;
+    font-weight: 400;
+
+    color: var(--color-text-second);
+}
+
+section{
+    display: grid;
+    grid-template-columns: 1.5rem, 2.15rem;
+    gap: 1.6rem;
+}
+
+section img{
+
+    grid-column: 1/2;
+    border-radius: 5px;
+}
+
+.text{
+    grid-column: 2/3;
+}
+
+/* Footer */
+
+footer{
+    background-color: var(--color-bg-footer);
+    color: white;
+    
+    text-align: center;
+
+    padding: 1.6rem;
+
+    font-weight: 600;
+
+    margin-top: 4.1rem;
+}
+
+/* Media Queries */
+
+@media (min-width: 700px) {
+
+    .page{
+        display: grid;
+        grid-template-areas:
+        'header header'
+        'main aside'
+        'footer footer';
+        gap: 3.4rem;
+    }
+
+    header{
+        grid-area: header;
+    }
+
+    main{
+        grid-area: main;
+    }
+
+    aside{
+        grid-area: aside;
+    }
+
+    footer{
+        grid-area: footer;
+    }
+    
+    header{
+        height: 7.2rem;
+        padding-inline: 11.2rem;
+        margin-bottom: 4.4rem;
+    }
+
+    header input{
+        width: 113.7rem;
+    }
+
+    main figure img{
+        width: 80.3rem;
+        height: 40.5rem;
+
+        border-radius: .5rem;
+    }
+
+    .like img{
+        width: 4rem;
+        height: 4rem;
+    }
+
+    main{
+        margin-left: 10.9rem;
+        width: 80.3rem;;
+    }
+
+    .title,
+    main p{
+        margin-inline: 0;
+    }
+
+    .title{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        align-items: center;
+        justify-items: start;
+    }
+
+    .like{
+        justify-self: end;
+    }
+
+    aside{
+        height: 61.5rem;
+    }
+
+    aside p{
+        width: 21.5rem;
+        height: 5.4px;
+    }
+
+    p{
+        font-size: 1.6rem;
+        font-weight: 400;
+        line-height: 160%
+    }
+
+}
+
+/* Animations */
+
+.logo{
+    transition: transform 1s linear, filter 1s linear;
+}
+
+.logo:hover{
+    transform: scale(1.1);
+    filter: hue-rotate(20deg);
+}
+
+
+header{
+    --down: -100%;
+    animation: show .3s ease-out;
+}
+
+footer{
+    --down: 100%;
+    animation: show .3s ease-out;
+}
+
+@keyframes show {
+    from{
+        transform: translateY(var(--down))
+    }
+}
+
+
+#like{
+    transition: filter .5s ease-in, transform .5s ease-in;
+}
+
+#like:hover{
+    filter:hue-rotate(270deg) brightness(1.7);
+    animation: shake .5s ease-in-out infinite alternate;
+}
+
+#dislike{
+    
+    transition: filter .5s ease-in, transform .5s ease-in;
+}
+
+#dislike:hover{
+    filter:hue-rotate(157deg) brightness(1.2);
+    animation: shake .5s ease-in-out infinite alternate;
+}
+
+@keyframes shake {
+    from{
+        transform: scale(1.1);
+        transform: rotate(-15deg);
+    } 
+    to{
+        transform: rotate(15deg);
+    }
+}
